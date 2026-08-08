@@ -1,4 +1,5 @@
 import Nav from '@/components/Nav';
+import ScrollAnimations from '@/components/ScrollAnimations';
 import { asset } from '@/lib/asset';
 import { SERVICES, RATES, WHY, LOOKS, CONTACT, waLink, BOOK_MESSAGE } from '@/lib/data';
 
@@ -16,10 +17,11 @@ export default function Home() {
   return (
     <main id="top" className="font-sans">
       <Nav />
+      <ScrollAnimations />
 
       {/* HERO */}
       <section className="grid min-h-screen grid-cols-1 md:grid-cols-2">
-        <div className="flex flex-col justify-center bg-sand px-6 py-24 sm:px-12 lg:px-16">
+        <div className="hero-copy flex flex-col justify-center bg-sand px-6 py-24 sm:px-12 lg:px-16">
           <span className="font-script text-3xl text-taupe-deep">Glam by</span>
           <h1 className="mt-1 font-serif text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl">
             GLAM<br />BY MOLLY
@@ -48,7 +50,7 @@ export default function Home() {
           </div>
         </div>
         <div className="relative min-h-[60vh] md:min-h-screen">
-          <img src={asset('/hero.jpg')} alt="Glam by Molly makeup look" className="absolute inset-0 h-full w-full object-cover object-top" />
+          <img src={asset('/hero.jpg')} alt="Glam by Molly makeup look" className="hero-img absolute inset-0 h-full w-full object-cover object-top" />
         </div>
       </section>
 
@@ -56,7 +58,7 @@ export default function Home() {
       <section id="about" className="mx-auto flex max-w-6xl items-center gap-10 px-6 py-24 sm:px-10">
         <VLabel>About</VLabel>
         <div className="grid flex-1 grid-cols-1 items-center gap-10 md:grid-cols-2">
-          <div className="order-2 md:order-1">
+          <div className="reveal order-2 md:order-1">
             <h2 className="font-serif text-4xl font-medium sm:text-5xl">Enhancing your natural beauty</h2>
             <div className="my-5 h-px w-16 bg-taupe-deep" />
             <p className="text-[0.98rem] leading-relaxed text-muted">
@@ -69,7 +71,7 @@ export default function Home() {
               beautifully and last throughout the day and night.
             </p>
           </div>
-          <div className="order-1 overflow-hidden rounded-2xl md:order-2">
+          <div className="reveal order-1 overflow-hidden rounded-2xl md:order-2">
             <img src={asset('/about.jpg')} alt="Molly, makeup artist" className="h-[30rem] w-full object-cover object-center" />
           </div>
         </div>
@@ -80,11 +82,11 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl gap-10 px-6 sm:px-10">
           <VLabel>Services</VLabel>
           <div className="flex-1">
-            <h2 className="font-serif text-4xl font-medium sm:text-5xl">Services</h2>
-            <p className="mt-3 text-sm uppercase tracking-[0.2em] text-muted">What I create</p>
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className="reveal font-serif text-4xl font-medium sm:text-5xl">Services</h2>
+            <p className="reveal mt-3 text-sm uppercase tracking-[0.2em] text-muted">What I create</p>
+            <div className="stagger mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {SERVICES.map((s) => (
-                <div key={s.name} className="group overflow-hidden rounded-2xl bg-cream shadow-sm">
+                <div key={s.name} className="stagger-item group overflow-hidden rounded-2xl bg-cream shadow-sm">
                   <div className="aspect-[4/5] overflow-hidden">
                     <img
                       src={asset(s.img)}
@@ -107,11 +109,11 @@ export default function Home() {
       <section id="work" className="mx-auto flex max-w-6xl gap-10 px-6 py-24 sm:px-10">
         <VLabel>Portfolio</VLabel>
         <div className="flex-1">
-          <h2 className="font-serif text-4xl font-medium sm:text-5xl">The Work</h2>
-          <p className="mt-3 text-sm uppercase tracking-[0.2em] text-muted">A few recent looks</p>
-          <div className="mt-10 columns-2 gap-4 md:columns-3 [&>*]:mb-4">
+          <h2 className="reveal font-serif text-4xl font-medium sm:text-5xl">The Work</h2>
+          <p className="reveal mt-3 text-sm uppercase tracking-[0.2em] text-muted">A few recent looks</p>
+          <div className="stagger mt-10 columns-2 gap-4 md:columns-3 [&>*]:mb-4">
             {LOOKS.map((src, i) => (
-              <div key={src} className="overflow-hidden rounded-xl break-inside-avoid">
+              <div key={src} className="stagger-item overflow-hidden rounded-xl break-inside-avoid">
                 <img
                   src={asset(src)}
                   alt={`Makeup look ${i + 1}`}
@@ -129,11 +131,11 @@ export default function Home() {
         <div className="mx-auto flex max-w-4xl gap-10 px-6 sm:px-10">
           <span className="vlabel hidden shrink-0 text-[2.4rem] font-bold uppercase text-cream/90 lg:block">Rate&nbsp;Card</span>
           <div className="flex-1">
-            <h2 className="font-serif text-4xl font-medium sm:text-5xl">Rate Card</h2>
-            <p className="mt-3 text-sm uppercase tracking-[0.2em] text-cream/60">Transparent pricing</p>
-            <ul className="mt-10 divide-y divide-cream/15">
+            <h2 className="reveal font-serif text-4xl font-medium sm:text-5xl">Rate Card</h2>
+            <p className="reveal mt-3 text-sm uppercase tracking-[0.2em] text-cream/60">Transparent pricing</p>
+            <ul className="stagger mt-10 divide-y divide-cream/15">
               {RATES.map((r) => (
-                <li key={r.name} className="flex items-center justify-between py-4">
+                <li key={r.name} className="stagger-item flex items-center justify-between py-4">
                   <span className="text-lg">{r.name}</span>
                   <span className="font-serif text-2xl text-taupe">{r.price}</span>
                 </li>
@@ -155,10 +157,10 @@ export default function Home() {
       <section className="mx-auto flex max-w-6xl gap-10 px-6 py-24 sm:px-10">
         <VLabel>Why&nbsp;Me</VLabel>
         <div className="flex-1">
-          <h2 className="font-serif text-4xl font-medium sm:text-5xl">Why book with me</h2>
-          <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <h2 className="reveal font-serif text-4xl font-medium sm:text-5xl">Why book with me</h2>
+          <div className="stagger mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
             {WHY.map((w, i) => (
-              <div key={w.title} className="flex gap-4">
+              <div key={w.title} className="stagger-item flex gap-4">
                 <span className="font-serif text-3xl text-taupe-deep">{String(i + 1).padStart(2, '0')}</span>
                 <div>
                   <h3 className="text-lg font-semibold">{w.title}</h3>
@@ -172,7 +174,7 @@ export default function Home() {
 
       {/* CONTACT */}
       <section id="contact" className="bg-sand py-24">
-        <div className="mx-auto max-w-3xl px-6 text-center sm:px-10">
+        <div className="reveal mx-auto max-w-3xl px-6 text-center sm:px-10">
           <span className="font-script text-3xl text-taupe-deep">Let&apos;s create</span>
           <h2 className="mt-1 font-serif text-4xl font-medium sm:text-5xl">Book your glam</h2>
           <p className="mx-auto mt-4 max-w-md text-[0.98rem] leading-relaxed text-muted">
