@@ -1,8 +1,11 @@
 # Glam by Molly
 
 One-page portfolio for **Glam by Molly** — professional makeup artist, Nairobi.
-Next.js 16 (App Router, TypeScript) + Tailwind v4, **static-exported for GitHub Pages**.
-Booking is a WhatsApp CTA (no backend).
+Next.js 16 (App Router, TypeScript) + Tailwind v4 + **GSAP** scroll animations,
+**static-exported for GitHub Pages**. Booking is a WhatsApp CTA (no backend).
+
+🔗 **Live:** https://alexirungu.github.io/glam-by-molly/
+📓 First-time Pages setup gotchas are in **[LESSONS.md](./LESSONS.md)** — read before touching deploy.
 
 ## Run locally
 ```bash
