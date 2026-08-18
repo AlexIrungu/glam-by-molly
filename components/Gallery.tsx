@@ -1,10 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { asset } from '@/lib/asset';
 
 // Portfolio masonry + lightbox. Grid keeps the GSAP `.stagger`/`.stagger-item`
-// hooks so ScrollAnimations still drives the reveal. Lightbox is keyboard-
+// hooks so Motion still drives the reveal. Lightbox is portaled to <body> (to
+// escape the ScrollSmoother transform) and is keyboard-
 // navigable (Esc / ← / →), locks body scroll, and closes on backdrop click.
 export default function Gallery({ looks }: { looks: string[] }) {
   const [index, setIndex] = useState<number | null>(null);
@@ -57,7 +59,7 @@ export default function Gallery({ looks }: { looks: string[] }) {
         ))}
       </div>
 
-      {open && (
+      {open && typeof document !== 'undefined' && createPortal(
         <div
           role="dialog"
           aria-modal="true"
@@ -104,7 +106,8 @@ export default function Gallery({ looks }: { looks: string[] }) {
           <span className="absolute bottom-5 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.2em] text-cream/60">
             {index + 1} / {looks.length}
           </span>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );

@@ -22,6 +22,17 @@ export const SERVICES: { name: string; blurb: string; img: string }[] = [
   { name: 'Touch-ups', blurb: 'Quick refreshes to keep you flawless through the day.', img: '/looks/look-15.jpg' },
 ];
 
+// "The Range" — the draggable showcase carousel. Merges each look with its
+// price (where fixed) so cards read like a menu you can throw through.
+export const RANGE: { name: string; blurb: string; img: string; price: string }[] = [
+  { name: 'Soft Glam', blurb: 'Natural, radiant everyday beauty that still turns heads.', img: '/looks/look-01.jpg', price: 'KSh 3,000' },
+  { name: 'Full Glam', blurb: 'Bold, camera-ready glam for the nights you want to shine.', img: '/looks/look-02.jpg', price: 'KSh 3,500' },
+  { name: 'Bridal Makeup', blurb: 'Flawless, long-wear looks made for your big day.', img: '/looks/look-03.jpg', price: 'KSh 4,500' },
+  { name: 'Bridal Party', blurb: 'Coordinated glam for the whole squad — on time, on point.', img: '/looks/look-07.jpg', price: 'KSh 3,000' },
+  { name: 'Photoshoots & Events', blurb: 'Looks built to photograph beautifully under any light.', img: '/looks/look-11.jpg', price: 'On request' },
+  { name: 'Touch-ups', blurb: 'Quick refreshes to keep you flawless through the day.', img: '/looks/look-15.jpg', price: 'On request' },
+];
+
 export const RATES: { name: string; price: string }[] = [
   { name: 'Soft Glam', price: 'KSh 3,000' },
   { name: 'Full Glam', price: 'KSh 3,500' },
