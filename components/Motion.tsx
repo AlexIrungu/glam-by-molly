@@ -31,7 +31,8 @@ export default function Motion() {
       gsap.from('.hero-copy > *', {
         y: 28, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.09, delay: 0.15,
       });
-      gsap.from('.hero-img', { scale: 1.1, opacity: 0, duration: 1.4, ease: 'power2.out' });
+      const heroImg = gsap.utils.toArray<HTMLElement>('.hero-img');
+      if (heroImg.length) gsap.from(heroImg, { scale: 1.1, opacity: 0, duration: 1.4, ease: 'power2.out' });
 
       // Reveal-on-scroll blocks.
       gsap.utils.toArray<HTMLElement>('.reveal').forEach((el) => {
@@ -75,6 +76,18 @@ export default function Motion() {
       smoother.scrollTo(y, true);
     };
     document.addEventListener('click', onAnchorClick);
+
+    // Arriving with a hash (e.g. navigating "/#about" from another route):
+    // jump to that section once the smoother exists.
+    if (window.location.hash) {
+      const el = document.querySelector(window.location.hash);
+      if (el && smoother) {
+        requestAnimationFrame(() => {
+          const y = Math.max(0, smoother!.offset(el as HTMLElement, 'top top') - 72);
+          smoother!.scrollTo(y, false);
+        });
+      }
+    }
 
     const t = window.setTimeout(() => ScrollTrigger.refresh(), 400);
 
