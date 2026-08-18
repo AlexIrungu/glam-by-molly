@@ -1,4 +1,5 @@
 import Nav from '@/components/Nav';
+import Gallery from '@/components/Gallery';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import { asset } from '@/lib/asset';
 import { SERVICES, RATES, WHY, LOOKS, CONTACT, waLink, BOOK_MESSAGE } from '@/lib/data';
@@ -111,18 +112,7 @@ export default function Home() {
         <div className="flex-1">
           <h2 className="reveal font-serif text-4xl font-medium sm:text-5xl">The Work</h2>
           <p className="reveal mt-3 text-sm uppercase tracking-[0.2em] text-muted">A few recent looks</p>
-          <div className="stagger mt-10 columns-2 gap-4 md:columns-3 [&>*]:mb-4">
-            {LOOKS.map((src, i) => (
-              <div key={src} className="stagger-item overflow-hidden rounded-xl break-inside-avoid">
-                <img
-                  src={asset(src)}
-                  alt={`Makeup look ${i + 1}`}
-                  loading="lazy"
-                  className="w-full transition-transform duration-500 hover:scale-[1.03]"
-                />
-              </div>
-            ))}
-          </div>
+          <Gallery looks={LOOKS} />
         </div>
       </section>
 

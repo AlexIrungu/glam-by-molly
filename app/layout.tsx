@@ -9,6 +9,7 @@ const cormorant = Cormorant_Garamond({
 const sacramento = Sacramento({ subsets: ['latin'], weight: '400', variable: '--font-sacramento', display: 'swap' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://alexirungu.github.io'),
   title: 'Glam by Molly — Makeup Artist in Nairobi',
   description:
     'Glam by Molly — professional makeup artist in Nairobi. Soft glam, bridal and full glam that enhances your natural beauty and lasts all day and night.',
